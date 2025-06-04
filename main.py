@@ -16,7 +16,7 @@ if __name__ == '__main__':
         gboard.up()
         gboard.print_self()
         print("up")
-
+ 
 
 
     def down():
