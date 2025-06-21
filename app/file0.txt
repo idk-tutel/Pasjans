@@ -1,0 +1,14 @@
+0, 0, 0, 0
+
+F/11/trefl#$#$#F/7/trefl#$#$#F/9/kier#$#$#F/8/pik#$#$#F/8/trefl#$#$#F/4/pik#$#$#F/7/pik#$#$#F/9/karo#$#$#F/7/kier#$#$#F/11/karo#$#$#F/2/karo#$#$#F/12/trefl#$#$#F/13/trefl#$#$#F/12/kier#$#$#F/8/karo#$#$#F/10/pik#$#$#F/3/karo#$#$#F/7/karo#$#$#F/9/trefl#$#$#F/4/trefl#$#$#F/1/kier#$#$#F/11/kier#$#$#F/1/karo#$#$#F/5/kier
+
+F/1/pik
+T/6/trefl#$#$#F/12/pik
+T/3/trefl#$#$#T/6/karo#$#$#F/6/kier
+T/9/pik#$#$#T/13/kier#$#$#T/6/pik#$#$#F/13/karo
+T/2/pik#$#$#T/5/trefl#$#$#T/10/karo#$#$#T/2/trefl#$#$#F/13/pik
+T/2/kier#$#$#T/5/karo#$#$#T/1/trefl#$#$#T/3/kier#$#$#T/11/pik#$#$#F/4/karo
+T/5/pik#$#$#T/10/trefl#$#$#T/8/kier#$#$#T/3/pik#$#$#T/10/kier#$#$#T/12/karo#$#$#F/4/kier
+
+
+MAMA           , 123
