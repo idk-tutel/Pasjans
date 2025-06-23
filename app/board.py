@@ -40,9 +40,8 @@ class Board:
                     if j != i[-1]:
                         save += "#$#$#"
                 save += "\n"
-            if self.main_set.index(i) == 6: save += "\n"
         #idk
-        save+="\nMAMA           , 123"
+        save+="\n[NAME]      , 123"
         return save
 
     def load(self, save):
@@ -73,6 +72,7 @@ class Board:
     def print_self(self):
         self.print_self_top()
         self.print_self_bottom()
+        self.print_binds()
 
 
     def print_self_top(self): #abominacja #1
@@ -186,6 +186,8 @@ class Board:
                         print(Fore.RED + "|_____|  ", end="")
                         continue
             print("\n", end="")
+    def print_binds(self):
+        print(Fore.GREEN + "w, a, s, d or arrow keys to move\nshift or x to select one or multiple cards\nspace or z to move selected to cursor\nesc to quit")
     def selectcard(self, card):
         pass
     def up(self):

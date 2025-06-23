@@ -1,11 +1,11 @@
 from colorama import Fore # ej co jagby zrobic taki algorytm sortujący ktory daje liczby na postą liste ale z miejscami a potem ją po prostu splaszczyć tak ze [1,2,3,4,5,6,7,3,7,3,,5,31,34,513,4531,45,13,45,1,34,5,13,45,2,452,45,] n długa lista gdzie n to największa liczba chociaz moze nie...
 class Saves:
-    def __init__(self,lol):
+    def __init__(self):
         self.cursor = 0
         self.menu = True
-        self.file = lol
+        self.file = "app/file0.txt"
     def print_self(self):
-        file0, file1, file2 = ["[EMPTY]        ", "XXX"],["[EMPTY]        ", "XXX"],["[EMTPY]        ", "XXX"]
+        file0, file1, file2 = ["[EMPTY]     ", "XXX"],["[EMPTY]     ", "XXX"],["[EMTPY]     ", "XXX"]
         if len(open("app/file0.txt", "r").read()) != 0:
             file0 = open("app/file0.txt", "r").read().split("\n\n")[3].split(", ")
         if len(open("app/file1.txt", "r").read()) != 0:
@@ -33,15 +33,17 @@ class Saves:
         print(Fore.GREEN, end="")
         if self.cursor == 3:
             print(Fore.YELLOW, end="")
-        print("   OPEN", end="")
+        print("   OPEN    ", end="")
         print(Fore.GREEN, end="")
         if self.cursor == 4:
             print(Fore.YELLOW, end="")
-        print("ERASE",end="")
+        print("ERASE    ",end="")
         print(Fore.LIGHTBLACK_EX,end="")
         if self.cursor == 5:
             print(Fore.RED, end="")
-        print("SETTINGS   ")
+        print("SETTINGS    \n\n")
+
+        print(Fore.GREEN + "w, a, s, d or arrow keys to move\nspace to confirm\nto quit open a save file first then press esc")
     def delete(self):
         pass
 
@@ -72,8 +74,12 @@ class Saves:
         elif self.cursor == 5:
             pass
     def left(self):
-        if 3 <= self.cursor < 6:
+        if 3 < self.cursor < 6:
             self.cursor -= 1
+        else:
+            self.cursor = 5
     def right(self):
-        if 3 < self.cursor <= 6:
+        if 3 <= self.cursor < 5:
             self.cursor += 1
+        else:
+            self.cursor = 3

@@ -6,7 +6,7 @@ from app import savesmenu
 from app import board
 from app import card
 from app import helpers
-
+menu = True
 
 if __name__ == '__main__':
     def savesmenuf():
@@ -34,7 +34,7 @@ if __name__ == '__main__':
             os.system("cls")
             saves.print_self()
 
-        saves = savesmenu.Saves("lol")
+        saves = savesmenu.Saves()
         os.system("cls")
         saves.print_self()
         keyboard.add_hotkey("w", upf)
@@ -46,7 +46,7 @@ if __name__ == '__main__':
         keyboard.add_hotkey("left", leftf)
         keyboard.add_hotkey("right", rightf)
         menu = True
-        while menu == True:
+        while menu:
             keyboard.wait("space")
             spacef()
             menu = saves.menu
@@ -61,6 +61,8 @@ if __name__ == '__main__':
         gboard.up()
         gboard.print_self()
         open(savefile, "w").write(gboard.save())
+        #for i in range(10): keyboard.press("scroll up")
+
 
     def down():
         os.system("cls")
@@ -120,15 +122,18 @@ if __name__ == '__main__':
         gboard.load(open(savefile).read())
     os.system("cls")
     gboard.print_self()
-    keyboard.add_hotkey("w", up)
+    keyboard.add_hotkey("w", down)
     keyboard.add_hotkey("s", down)
     keyboard.add_hotkey("a", left)
     keyboard.add_hotkey("d", right)
-    keyboard.add_hotkey("up", up)
+    keyboard.add_hotkey("up", down)
     keyboard.add_hotkey("down", down)
     keyboard.add_hotkey("left", left)
     keyboard.add_hotkey("right", right)
     keyboard.add_hotkey("r", reset)
     keyboard.add_hotkey("l", load)
     keyboard.add_hotkey("space", space)
+    keyboard.add_hotkey("x", space)
+    keyboard.add_hotkey("z", up)
+    keyboard.add_hotkey("shift", up)
     keyboard.wait("esc")
