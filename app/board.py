@@ -1,5 +1,9 @@
+from colorama import Fore, \
+    Style  # ej co jagby zrobic taki algorytm sortujący ktory daje liczby na postą liste ale z miejscami a potem ją po prostu splaszczyć tak ze [1,2,3,4,5,6,7,3,7,3,,5,31,34,513,4531,45,13,45,1,34,5,13,45,2,452,45,] n długa lista gdzie n to największa liczba chociaz moze nie...
+
 from app import card as cards
-from colorama import Fore, Style # ej co jagby zrobic taki algorytm sortujący ktory daje liczby na postą liste ale z miejscami a potem ją po prostu splaszczyć tak ze [1,2,3,4,5,6,7,3,7,3,,5,31,34,513,4531,45,13,45,1,34,5,13,45,2,452,45,] n długa lista gdzie n to największa liczba chociaz moze nie...
+
+
 class Board:
     def __init__(self, deck, cursor=1):
         self.finish_set = [0,0,0,0]
@@ -14,6 +18,7 @@ class Board:
         self.cursor = cursor
         self.selectednum = 0
         self.selectedrow = 1
+        self.moves = 0
 
     def save(self):
         save = ""
@@ -41,7 +46,10 @@ class Board:
                         save += "#$#$#"
                 save += "\n"
         #idk
-        save+="\n[NAME]      , 123"
+        save+="\n[NAME]      , "
+        for i in range(4-len(str(self.moves))):
+            save+="0"
+        save+=str(self.moves)
         return save
 
     def load(self, save):
@@ -62,6 +70,7 @@ class Board:
                 for i in range(len(column)):
                     self.main_set[j].append(cards.Card("pik", "Lancer"))
                     self.main_set[j][i].loadcard(column[i])
+        self.moves = int(save[3].split(", ")[1])
 
     def draw_cycle(self):
         if  len(self.draw_set) > 0:
@@ -72,7 +81,7 @@ class Board:
     def print_self(self):
         self.print_self_top()
         self.print_self_bottom()
-        self.print_binds()
+        print(Fore.GREEN + "w, a, s, d or arrow keys to move\nshift or x to select one or multiple cards\nspace or z to move selected to cursor\nesc to quit")
 
 
     def print_self_top(self): #abominacja #1
@@ -186,8 +195,6 @@ class Board:
                         print(Fore.RED + "|_____|  ", end="")
                         continue
             print("\n", end="")
-    def print_binds(self):
-        print(Fore.GREEN + "w, a, s, d or arrow keys to move\nshift or x to select one or multiple cards\nspace or z to move selected to cursor\nesc to quit")
     def selectcard(self, card):
         pass
     def up(self):
@@ -243,11 +250,13 @@ class Board:
                         cursoron = cards.Card()
                     if  len(self.draw_set) > 0 and self.selectedrow == -2  and self.draw_set[0].cangoon(cursoron):#dla zaznaczonego draw seta
                         self.main_set[self.cursor-1].append(self.draw_set[0])
+                        self.moves+=1
                         self.draw_set.pop(0)
                     elif topselected.cangoon(cursoron):
                         self.main_set[self.cursor - 1].append(topselected)
                         self.main_set[self.selectedrow - 1].pop(self.main_set[self.selectedrow - 1].index(topselected))
                         self.selectednum -= 1
+                        self.moves+=1
             elif self.cursor < -2 and (self.selectedrow>=1 or self.selectedrow==-2) and len(self.main_set):#finish
                 if self.selectedrow >= 1:
                     selected = self.main_set[self.selectedrow - 1][- 1]
@@ -260,6 +269,7 @@ class Board:
                         self.draw_set.pop(0)
                     else:
                         self.main_set[self.selectedrow - 1].pop(self.main_set[self.selectedrow - 1].index(selected))
+                    self.moves += 1
                     self.finish_set[0] += 1
 
                 elif self.cursor == -4 and selected.colour == "karo" and self.finish_set[1] == selected.lol.index(selected.symbol):
@@ -267,6 +277,7 @@ class Board:
                         self.draw_set.pop(0)
                     else:
                         self.main_set[self.selectedrow - 1].pop(self.main_set[self.selectedrow - 1].index(selected))
+                    self.moves += 1
                     self.finish_set[1] += 1
 
                 elif self.cursor == -5 and selected.colour == "trefl" and self.finish_set[2] == selected.lol.index(selected.symbol):
@@ -274,6 +285,7 @@ class Board:
                         self.draw_set.pop(0)
                     else:
                         self.main_set[self.selectedrow - 1].pop(self.main_set[self.selectedrow - 1].index(selected))
+                    self.moves += 1
                     self.finish_set[2] += 1
 
                 elif self.cursor == -6 and selected.colour == "kier" and self.finish_set[3] == selected.lol.index(selected.symbol):
@@ -281,6 +293,7 @@ class Board:
                         self.draw_set.pop(0)
                     else:
                         self.main_set[self.selectedrow - 1].pop(self.main_set[self.selectedrow - 1].index(selected))
+                    self.moves += 1
                     self.finish_set[3] += 1
         if len(self.main_set[self.selectedrow - 1]) != 0:
             self.main_set[self.selectedrow - 1][-1].inv = False

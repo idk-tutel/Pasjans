@@ -2,10 +2,11 @@ import os
 
 import keyboard
 
-from app import savesmenu
 from app import board
 from app import card
 from app import helpers
+from app import savesmenu
+
 menu = True
 
 if __name__ == '__main__':

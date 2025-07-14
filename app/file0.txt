@@ -1,13 +1,13 @@
-0, 0, 0, 0
+1, 0, 0, 1
 
-F/2/kier#$#$#F/10/kier#$#$#F/3/karo#$#$#F/3/trefl#$#$#F/8/karo#$#$#F/12/trefl#$#$#F/8/trefl#$#$#F/4/karo#$#$#F/13/kier#$#$#F/1/karo#$#$#F/13/trefl#$#$#F/2/pik#$#$#F/4/trefl#$#$#F/1/pik#$#$#F/1/kier#$#$#F/5/pik#$#$#F/2/trefl#$#$#F/9/karo#$#$#F/7/kier#$#$#F/6/trefl#$#$#F/9/pik#$#$#F/8/kier#$#$#F/5/karo#$#$#F/4/pik
+F/5/pik#$#$#F/2/trefl#$#$#F/9/karo#$#$#F/7/kier#$#$#F/6/trefl#$#$#F/9/pik#$#$#F/8/kier#$#$#F/5/karo#$#$#F/4/pik#$#$#F/2/kier#$#$#F/10/kier#$#$#F/3/karo#$#$#F/3/trefl#$#$#F/8/karo#$#$#F/12/trefl#$#$#F/8/trefl#$#$#F/4/karo#$#$#F/13/kier#$#$#F/1/karo#$#$#F/13/trefl#$#$#F/2/pik#$#$#F/4/trefl
 
 F/10/karo
 T/12/pik#$#$#F/6/karo
-T/7/pik#$#$#T/12/kier#$#$#F/5/kier
+T/7/pik#$#$#F/12/kier
 T/10/trefl#$#$#T/10/pik#$#$#T/7/karo#$#$#F/12/karo
 T/2/karo#$#$#T/11/kier#$#$#T/6/kier#$#$#T/13/karo#$#$#F/9/kier
-T/11/trefl#$#$#T/1/trefl#$#$#T/8/pik#$#$#T/9/trefl#$#$#T/3/pik#$#$#F/6/pik
+T/11/trefl#$#$#T/1/trefl#$#$#T/8/pik#$#$#T/9/trefl#$#$#T/3/pik#$#$#F/6/pik#$#$#F/5/kier
 T/11/karo#$#$#T/7/trefl#$#$#T/11/pik#$#$#T/3/kier#$#$#T/13/pik#$#$#T/5/trefl#$#$#F/4/kier
 
-[NAME]      , 123
+[NAME]      , 0123
